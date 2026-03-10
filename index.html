@@ -1,0 +1,2411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlueBird — MOS Excel 2019 Certification Coaching</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,600&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #0d0f12;
+      --navy: #0f1f3d;
+      --blue: #1a4ed8;
+      --blue-hover: #1741b8;
+      --blue-light: #dbeafe;
+      --blue-pale: #eff6ff;
+      --green: #166534;
+      --green-mid: #16a34a;
+      --green-light: #dcfce7;
+      --white: #ffffff;
+      --grey-50: #f9fafb;
+      --grey-100: #f3f4f6;
+      --grey-200: #e5e7eb;
+      --grey-400: #9ca3af;
+      --grey-600: #4b5563;
+      --grey-800: #1f2937;
+      --border: #e5e7eb;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--grey-800);
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAVIGATION ─────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 56px;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: white;
+    }
+
+    .logo-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.02em;
+    }
+
+    .logo-text span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--grey-600);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover {
+      color: var(--black);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-ghost {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--grey-600);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+      border: 1px solid transparent;
+    }
+
+    .btn-ghost:hover {
+      background: var(--grey-100);
+      color: var(--black);
+    }
+
+    .btn-nav {
+      font-size: 0.875rem;
+      font-weight: 600;
+      background: var(--blue);
+      color: white;
+      padding: 9px 20px;
+      border-radius: 7px;
+      text-decoration: none;
+      transition: background 0.15s;
+      letter-spacing: -0.01em;
+    }
+
+    .btn-nav:hover {
+      background: var(--blue-hover);
+    }
+
+    /* ─── HERO ───────────────────────────────────── */
+    .hero-wrap {
+      background: var(--navy);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: -120px;
+      right: -100px;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(26, 78, 216, 0.25) 0%, transparent 70%);
+    }
+
+    .hero-glow-2 {
+      position: absolute;
+      bottom: -80px;
+      left: 20%;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(22, 163, 74, 0.12) 0%, transparent 70%);
+    }
+
+    .hero-inner {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 860px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 110px 56px 90px;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .hero-left {
+      flex: 1;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #93c5fd;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow-line {
+      width: 24px;
+      height: 1.5px;
+      background: #93c5fd;
+      flex-shrink: 0;
+    }
+
+    .hero-h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .hero-h1 em {
+      font-style: italic;
+      font-weight: 600;
+      color: #60a5fa;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: #94a3b8;
+      max-width: 560px;
+      line-height: 1.75;
+      margin: 0 auto 40px;
+      font-weight: 400;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-hero-primary {
+      background: var(--blue);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      transition: background 0.15s, transform 0.15s;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 4px 20px rgba(26, 78, 216, 0.4);
+    }
+
+    .btn-hero-primary:hover {
+      background: var(--blue-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-hero-secondary {
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 14px 24px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .btn-hero-secondary:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      color: white;
+    }
+
+    .hero-trust {
+      margin-top: 52px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      gap: 56px;
+      justify-content: center;
+    }
+
+    .trust-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: white;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .trust-label {
+      font-size: 0.8rem;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+
+    /* ─── TRUST BAR ──────────────────────────────── */
+    .trust-bar {
+      background: var(--grey-50);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 56px;
+    }
+
+    .trust-bar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .trust-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--grey-600);
+    }
+
+    .trust-tag svg {
+      color: var(--blue);
+      flex-shrink: 0;
+    }
+
+    .trust-divider {
+      width: 1px;
+      height: 20px;
+      background: var(--grey-200);
+    }
+
+    /* ─── SECTION LAYOUT ─────────────────────────── */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 96px 56px;
+    }
+
+    .section-header {
+      margin-bottom: 56px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 14px;
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 2px;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 3vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--black);
+      margin-bottom: 14px;
+    }
+
+    .section-desc {
+      font-size: 0.975rem;
+      color: var(--grey-600);
+      max-width: 520px;
+      line-height: 1.75;
+      font-weight: 400;
+    }
+
+    /* ─── COURSES ────────────────────────────────── */
+    .courses-wrap {
+      background: var(--white);
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .course-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--white);
+      transition: box-shadow 0.2s, border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .course-card:hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      border-color: #cbd5e1;
+    }
+
+    .card-top-band {
+      height: 4px;
+    }
+
+    .band-blue {
+      background: linear-gradient(90deg, var(--blue), #3b82f6);
+    }
+
+    .band-green {
+      background: linear-gradient(90deg, var(--green), var(--green-mid));
+    }
+
+    .band-navy {
+      background: linear-gradient(90deg, var(--navy), var(--blue));
+    }
+
+    .card-head {
+      padding: 28px 28px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .tag-blue {
+      background: var(--blue-pale);
+      color: var(--blue);
+    }
+
+    .tag-green {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .price-block {
+      text-align: right;
+    }
+
+    .price-main {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .price-sub {
+      font-size: 0.75rem;
+      color: var(--grey-400);
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    .card-body {
+      padding: 20px 28px 24px;
+      flex: 1;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--grey-600);
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+
+    .class-size-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--grey-600);
+      background: var(--grey-100);
+      border: 1px solid var(--grey-200);
+      padding: 5px 10px;
+      border-radius: 6px;
+      margin-bottom: 14px;
+    }
+
+    .class-size-badge svg {
+      flex-shrink: 0;
+      stroke: var(--blue);
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 0.84rem;
+      color: var(--grey-800);
+      line-height: 1.5;
+    }
+
+    .feat-check {
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feat-check-blue {
+      background: var(--blue-light);
+    }
+
+    .feat-check-green {
+      background: var(--green-light);
+    }
+
+    .feat-check svg {
+      width: 9px;
+      height: 9px;
+      stroke-width: 2.5;
+    }
+
+    .feat-check-blue svg {
+      stroke: var(--blue);
+    }
+
+    .feat-check-green svg {
+      stroke: var(--green);
+    }
+
+    .card-footer {
+      padding: 18px 28px;
+      border-top: 1px solid var(--grey-100);
+      display: flex;
+      gap: 10px;
+      background: var(--grey-50);
+    }
+
+    .btn-enroll {
+      flex: 1;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 11px 20px;
+      border-radius: 7px;
+      transition: background 0.15s;
+      letter-spacing: -0.01em;
+    }
+
+    .btn-enroll-blue {
+      background: var(--blue);
+      color: white;
+    }
+
+    .btn-enroll-blue:hover {
+      background: var(--blue-hover);
+    }
+
+    .btn-enroll-green {
+      background: var(--green);
+      color: white;
+    }
+
+    .btn-enroll-green:hover {
+      background: #145229;
+    }
+
+    .btn-syllabus {
+      background: var(--white);
+      color: var(--grey-600);
+      border: 1px solid var(--border);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 11px 16px;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .btn-syllabus:hover {
+      border-color: var(--grey-800);
+      color: var(--black);
+    }
+
+    /* Bundle card */
+    .bundle-card {
+      grid-column: 1 / -1;
+      border: 2px solid var(--blue);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--white);
+      transition: box-shadow 0.2s;
+    }
+
+    .bundle-card:hover {
+      box-shadow: 0 8px 32px rgba(26, 78, 216, 0.12);
+    }
+
+    .bundle-inner {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .bundle-left {
+      flex: 1;
+      padding: 32px;
+      border-right: 1px solid var(--grey-100);
+    }
+
+    .bundle-tags {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .bundle-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .bundle-desc {
+      font-size: 0.85rem;
+      color: var(--grey-600);
+      line-height: 1.7;
+    }
+
+    .bundle-feats {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .bundle-right {
+      flex: 0 0 260px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: var(--blue-pale);
+    }
+
+    .save-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: var(--green-light);
+      color: var(--green);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      letter-spacing: 0.04em;
+    }
+
+    .bundle-was {
+      font-size: 0.82rem;
+      color: var(--grey-400);
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+
+    .bundle-price {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .bundle-price-label {
+      font-size: 0.78rem;
+      color: var(--grey-400);
+      margin-bottom: 24px;
+    }
+
+    .btn-bundle {
+      width: 100%;
+      background: var(--blue);
+      color: white;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 13px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .btn-bundle:hover {
+      background: var(--blue-hover);
+    }
+
+    /* ─── INCLUDED ───────────────────────────────── */
+    .included-wrap {
+      background: var(--grey-50);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .included-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .incl-item {
+      background: var(--white);
+      padding: 32px;
+      transition: background 0.15s;
+    }
+
+    .incl-item:hover {
+      background: var(--grey-50);
+    }
+
+    .incl-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      flex-shrink: 0;
+    }
+
+    .icon-blue {
+      background: var(--blue-pale);
+    }
+
+    .icon-green {
+      background: var(--green-light);
+    }
+
+    .icon-dark {
+      background: var(--grey-100);
+    }
+
+    .incl-icon-wrap svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .icon-blue svg {
+      stroke: var(--blue);
+    }
+
+    .icon-green svg {
+      stroke: var(--green);
+    }
+
+    .icon-dark svg {
+      stroke: var(--grey-600);
+    }
+
+    .incl-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .incl-desc {
+      font-size: 0.82rem;
+      color: var(--grey-600);
+      line-height: 1.65;
+    }
+
+    /* ─── TESTIMONIALS ───────────────────────────── */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .testi-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      position: relative;
+    }
+
+    .quote-mark {
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--blue-light);
+      font-family: 'Playfair Display', serif;
+      position: absolute;
+      top: 16px;
+      right: 22px;
+    }
+
+    .stars {
+      margin-bottom: 14px;
+      display: flex;
+      gap: 2px;
+    }
+
+    .star {
+      width: 14px;
+      height: 14px;
+      fill: #f59e0b;
+    }
+
+    .testi-text {
+      font-size: 0.875rem;
+      color: var(--grey-700, #374151);
+      line-height: 1.75;
+      margin-bottom: 22px;
+    }
+
+    .testi-sep {
+      height: 1px;
+      background: var(--grey-100);
+      margin-bottom: 18px;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testi-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: white;
+    }
+
+    .av-blue {
+      background: var(--blue);
+    }
+
+    .av-navy {
+      background: var(--navy);
+    }
+
+    .av-green {
+      background: var(--green);
+    }
+
+    .testi-name {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--black);
+    }
+
+    .testi-role {
+      font-size: 0.75rem;
+      color: var(--grey-400);
+      margin-top: 1px;
+    }
+
+    /* ─── FAQ ────────────────────────────────────── */
+    .faq-wrap {
+      background: var(--grey-50);
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+    }
+
+    .faq-q {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .faq-a {
+      font-size: 0.84rem;
+      color: var(--grey-600);
+      line-height: 1.7;
+    }
+
+    /* ─── CTA ────────────────────────────────────── */
+    .cta-wrap {
+      background: var(--navy);
+    }
+
+    .cta-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 96px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .cta-left {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .cta-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #60a5fa;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cta-eyebrow::before {
+      content: '';
+      width: 20px;
+      height: 2px;
+      background: #60a5fa;
+    }
+
+    .cta-h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: white;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .cta-desc {
+      font-size: 0.94rem;
+      color: #64748b;
+      line-height: 1.7;
+    }
+
+    .cta-right {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .btn-cta-primary {
+      background: var(--blue);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      transition: background 0.15s;
+      white-space: nowrap;
+      box-shadow: 0 4px 20px rgba(26, 78, 216, 0.4);
+    }
+
+    .btn-cta-primary:hover {
+      background: var(--blue-hover);
+    }
+
+    .btn-cta-secondary {
+      color: #64748b;
+      font-size: 0.84rem;
+      font-weight: 500;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 0;
+      transition: color 0.15s;
+    }
+
+    .btn-cta-secondary:hover {
+      color: #94a3b8;
+    }
+
+    /* ─── CONTACT ────────────────────────────────── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 720px;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 24px 28px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--grey-50);
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .contact-card:hover {
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+      border-color: #cbd5e1;
+      transform: translateY(-2px);
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--grey-400);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+
+    .contact-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--black);
+    }
+
+    .contact-arrow {
+      margin-left: auto;
+      font-size: 1.1rem;
+      color: var(--grey-400);
+    }
+
+    /* ─── FOOTER ─────────────────────────────────── */
+    footer {
+      background: var(--black);
+      padding: 40px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .footer-logo-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-logo-icon svg {
+      width: 14px;
+      height: 14px;
+      fill: white;
+    }
+
+    .footer-logo-text {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: white;
+      letter-spacing: -0.02em;
+    }
+
+    .footer-logo-text span {
+      color: #60a5fa;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      color: #475569;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover {
+      color: #94a3b8;
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: #374151;
+    }
+
+    /* ─── ANIMATIONS ─────────────────────────────── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0.4
+      }
+    }
+
+    .anim-1 {
+      animation: fadeUp 0.6s 0.05s ease both;
+    }
+
+    .anim-2 {
+      animation: fadeUp 0.6s 0.15s ease both;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────── */
+    @media (max-width: 960px) {
+      nav {
+        padding: 0 24px;
+      }
+
+      .nav-links,
+      .btn-ghost {
+        display: none;
+      }
+
+      .hero-inner {
+        flex-direction: column;
+        padding: 90px 24px 60px;
+        gap: 40px;
+      }
+
+      .section {
+        padding: 64px 24px;
+      }
+
+      .trust-bar {
+        padding: 16px 24px;
+      }
+
+      .courses-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bundle-inner {
+        flex-direction: column;
+      }
+
+      .bundle-right {
+        flex: none;
+        width: 100%;
+        border-top: 1px solid var(--grey-200);
+      }
+
+      .included-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .testi-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-inner {
+        flex-direction: column;
+        padding: 64px 24px;
+      }
+
+      footer {
+        flex-direction: column;
+        padding: 32px 24px;
+        text-align: center;
+      }
+
+      .footer-links {
+        justify-content: center;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .included-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-trust {
+        flex-wrap: wrap;
+        gap: 24px;
+      }
+
+      .trust-bar-inner {
+        justify-content: flex-start;
+        gap: 20px;
+      }
+
+      .trust-divider {
+        display: none;
+      }
+
+      .contact-card {
+        padding: 20px;
+      }
+
+      .contact-value {
+        font-size: 0.88rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-left">
+      <a href="#" class="logo"><img src="BlueBirdLogo.png" alt="Sky Excel Coach"
+          style="height:80px;width:auto;display:block;"></a>
+      <ul class="nav-links">
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#includes">What's Included</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <!-- <a href="#" class="btn-ghost">Sign In</a> -->
+      <a href="#courses" class="btn-nav">Enroll Now</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero-wrap">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow-2"></div>
+    <div class="hero-inner">
+      <div class="hero-left anim-1">
+        <div class="hero-eyebrow">
+          <span class="eyebrow-line"></span>
+          Microsoft Office Specialist · Excel 2019
+        </div>
+        <h1 class="hero-h1">
+          The most effective path to <em>MOS Excel</em> certification.
+        </h1>
+        <p class="hero-desc">
+          Structured, instructor-led coaching programmes for the MOS Excel 2019 Associate (MO-200) and Expert (MO-201)
+          exams. Built to help you pass first time.
+        </p>
+        <div class="hero-ctas">
+          <a href="#courses" class="btn-hero-primary">View Programmes →</a>
+          <a href="#includes" class="btn-hero-secondary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 8v4l3 3" />
+            </svg>
+            What's included
+          </a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item">
+            <!-- <div class="trust-num">2,400+</div> -->
+            <!-- <div class="trust-label">Students certified</div> -->
+          </div>
+          <div class="trust-item">
+            <!-- <div class="trust-num">97%</div> -->
+            <!-- <div class="trust-label">First-attempt pass rate</div> -->
+          </div>
+          <div class="trust-item">
+            <!-- <div class="trust-num">4.9 / 5</div> -->
+            <!-- <div class="trust-label">Average student rating</div> -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- COURSES -->
+  <div class="courses-wrap" id="courses">
+    <div class="section">
+      <div class="section-header">
+        <div class="eyebrow">Programmes</div>
+        <h2>Choose your certification pathway</h2>
+      </div>
+
+      <div class="courses-grid">
+
+        <!-- ASSOCIATE -->
+        <div class="course-card">
+          <div class="card-top-band band-blue"></div>
+          <div class="card-head">
+            <span class="tag tag-blue">Associate · MO-200</span>
+            <div class="price-block">
+              <div class="price-main">$3,880</div>
+              <div class="price-sub">excl. GST</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-title">MOS Excel 2019 Associate</div>
+            <div class="class-size-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+              Class size: 1 coach to 2 students
+            </div>
+            <p class="card-desc">Build a strong Excel foundation covering every Exam MO-200 objective. Designed for
+              students and professionals seeking to validate and advance their spreadsheet skills.</p>
+            <ul class="feature-list">
+              <li>
+                <div class="feat-check feat-check-blue">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="20,6 9,17 4,12" />
+                  </svg>
+                </div>
+                Workbook & worksheet management
+              </li>
+              <li>
+                <div class="feat-check feat-check-blue">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="20,6 9,17 4,12" />
+                  </svg>
+                </div>
+                Cell formatting & structured data entry
+              </li>
+              <li>
+                <div class="feat-check feat-check-blue">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="20,6 9,17 4,12" />
+                  </svg>
+                </div>
+                Core formulas — SUM, IF, VLOOKUP, and more
+              </li>
+              <li>
+                <div class="feat-check feat-check-blue">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="20,6 9,17 4,12" />
+                  </svg>
+                </div>
+                Chart creation and formatting
+              </li>
+              <li>
+                <div class="feat-check feat-check-blue">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="20,6 9,17 4,12" />
+                  </svg>
+                </div>
+                Sorting, filtering & Excel tables
+              </li>
+              <li>
+                <div class="feat-check feat-check-blue">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="20,6 9,17 4,12" />
+                  </svg>
+                </div>
+                Full timed MO-200 practice examination
+              </li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <button class="btn-enroll btn-enroll-blue"
+              onclick="window.open('https://forms.office.com/r/Rydt28Cyrf', '_blank')">Enrol Now</button>
+            <button class="btn-syllabus" onclick="openSyllabus()">Syllabus</button>
+          </div>
+        </div>
+
+        <!-- EXPERT -->
+        <div class="course-card">
+          <div class="card-top-band band-green"></div>
+          <div class="card-head">
+            <span class="tag tag-green">Expert · MO-201</span>
+            <div class="price-block">
+              <div class="price-main">$3,880</div>
+              <div class="price-sub">excl. GST</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-title">MOS Excel 2019 Expert</div>
+            <div class="class-size-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+              Class size: 1 coach to 2 students
+            </div>
+            <p class="card-desc">Master advanced Excel capabilities across every MO-201 objective. The credential of
+              choice for analysts, finance professionals, and power users.</p>
+            <ul class="feature-list">
+              <li>
+                <div class="feat-check feat-check-green">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="20,6 9,17 4,12" />
+                  </svg>
+                </div>
+                Advanced logical & lookup functions
+              </li>
+              <li>
+                <div class="feat-check feat-check-green">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="20,6 9,17 4,12" />
+                  </svg>
+                </div>
+                PivotTables, PivotCharts & Slicers
+              </li>
+              <li>
+                <div class="feat-check feat-check-green">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="20,6 9,17 4,12" />
+                  </svg>
+                </div>
+                Power Query & data modelling
+              </li>
+              <li>
+                <div class="feat-check feat-check-green">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="20,6 9,17 4,12" />
+                  </svg>
+                </div>
+                Macros, form controls & automation
+              </li>
+              <li>
+                <div class="feat-check feat-check-green">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="20,6 9,17 4,12" />
+                  </svg>
+                </div>
+                Data validation & conditional formatting
+              </li>
+              <li>
+                <div class="feat-check feat-check-green">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="20,6 9,17 4,12" />
+                  </svg>
+                </div>
+                Full timed MO-201 practice examination
+              </li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <button class="btn-enroll btn-enroll-green"
+              onclick="window.open('https://forms.office.com/r/Rydt28Cyrf', '_blank')">Enrol Now</button>
+            <button class="btn-syllabus" onclick="openExpertSyllabus()">Syllabus</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- INCLUDED -->
+  <div class="included-wrap" id="includes">
+    <div class="section">
+      <div class="section-header">
+        <div class="eyebrow">What's Included</div>
+        <h2>Every resource to help you succeed</h2>
+        <p class="section-desc">No filler content. Every resource is purpose-built and directly mapped to the exam
+          objectives you will be tested on.</p>
+      </div>
+      <div class="included-grid">
+        <div class="incl-item">
+          <div class="incl-icon-wrap icon-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14,2 14,8 20,8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+            </svg>
+          </div>
+          <div class="incl-title">Excel Practice Files</div>
+          <div class="incl-desc">Downloadable workbooks for every lesson so you can practise alongside the instructor
+            using real-world data.</div>
+        </div>
+        <div class="incl-item">
+          <div class="incl-icon-wrap icon-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              xmlns="http://www.w3.org/2000/svg">
+              <line x1="8" y1="6" x2="21" y2="6" />
+              <line x1="8" y1="12" x2="21" y2="12" />
+              <line x1="8" y1="18" x2="21" y2="18" />
+              <line x1="3" y1="6" x2="3.01" y2="6" />
+              <line x1="3" y1="12" x2="3.01" y2="12" />
+              <line x1="3" y1="18" x2="3.01" y2="18" />
+            </svg>
+          </div>
+          <div class="incl-title">Objective Checklists</div>
+          <div class="incl-desc">Printable topic-by-topic checklists aligned to every official exam objective, so you
+            can track your progress systematically.</div>
+        </div>
+        <div class="incl-item">
+          <div class="incl-icon-wrap icon-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+          </div>
+          <div class="incl-title">Instructor Q&A Support</div>
+          <div class="incl-desc">Submit questions directly in the course community and receive a response from the
+            instructor within one business day.</div>
+        </div>
+        <div class="incl-item">
+          <div class="incl-icon-wrap icon-dark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="8" r="6" />
+              <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
+            </svg>
+          </div>
+          <div class="incl-title">Certificate of Completion</div>
+          <div class="incl-desc">Receive a verifiable completion certificate to share on LinkedIn while you await your
+            official Microsoft MOS credential.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-wrap" id="faq">
+    <div class="section">
+      <div class="section-header">
+        <div class="eyebrow">FAQ</div>
+        <h2>Common questions</h2>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-q">Do I need prior Excel experience?</div>
+          <div class="faq-a">The Associate programme assumes basic familiarity with Excel. The Expert programme is
+            designed for those who already hold the Associate credential or have equivalent proficiency.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How long does each programme take?</div>
+          <div class="faq-a">Both the Associate and Expert programmes require approximately 40 hours of commitment,
+            typically completed over five days.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What is the Microsoft MOS exam format?</div>
+          <div class="faq-a">MOS exams are performance-based tests delivered through Certiport testing centres. You
+            complete real tasks inside Microsoft Excel within a set time — typically 50 minutes.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What happens if I do not pass the MOS Exam on my first attempt?</div>
+          <div class="faq-a">If you do not pass the MOS exam on your first attempt, you are welcome to enrol in our
+            class one more time at no additional cost.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is the content suitable for Excel on Mac?</div>
+          <div class="faq-a">The MOS Excel 2019 exam is administered on Windows. We recommend completing the course
+            using Excel 2019 or Microsoft 365 on a Windows device to ensure full feature parity.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Will I receive a certificate after completion?</div>
+          <div class="faq-a">Yes — you receive a BlueBird completion certificate upon finishing the course. The
+            official Microsoft credential is awarded by Certiport after passing the proctored exam.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div id="contact" style="background: var(--white); border-top: 1px solid var(--border); min-height: 80vh;">
+    <div class="section" style="padding-top: 96px; padding-bottom: 96px;">
+      <div class="section-header" style="margin-bottom: 40px;">
+        <div class="eyebrow">Contact Us</div>
+        <h2>Get in touch</h2>
+        <p class="section-desc">Have a question about the programmes? Reach out and we'll get back to you promptly.</p>
+      </div>
+      <div class="contact-grid">
+        <a href="https://wa.me/6596145663" target="_blank" class="contact-card">
+          <div class="contact-icon" style="background:#e7f9ee;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="1.8"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+            </svg>
+          </div>
+          <div>
+            <div class="contact-label">WhatsApp</div>
+            <div class="contact-value">+65 9614 5663</div>
+          </div>
+          <div class="contact-arrow">→</div>
+        </a>
+        <a href="mailto:bluebirdexcel@outlook.com" class="contact-card">
+          <div class="contact-icon" style="background:#eff6ff;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a4ed8" stroke-width="1.8"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+          </div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value"><span class="__cf_email__"
+                data-cfemail="f49c9198989bb4918c97919897918680da979b99">bluebirdexcel@outlook.com</span></div>
+          </div>
+          <div class="contact-arrow">→</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#" class="footer-logo"><img src="BlueBirdLogo.png" alt="Sky Excel Coach" height="80px">
+    </a>
+    <ul class="footer-links">
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="footer-copy">© 2026 ExcelCert Ltd. All rights reserved.</div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════════
+     ASSOCIATE SYLLABUS MODAL (MO-200)
+════════════════════════════════════════════════════════════ -->
+  <div id="syllabus-overlay" onclick="if(event.target===this)closeSyllabus()"
+    style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(10,15,25,0.6);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px;">
+    <div id="syllabus-panel"
+      style="background:#fff;border-radius:16px;width:100%;max-width:720px;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,0.25);transform:translateY(32px);opacity:0;transition:transform 0.3s ease,opacity 0.3s ease;">
+      <div
+        style="padding:24px 28px;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
+        <div>
+          <div
+            style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#1a4ed8;margin-bottom:4px;">
+            MOS Excel 2019 Associate · MO-200</div>
+          <div style="font-size:1.1rem;font-weight:700;color:#0d0f12;letter-spacing:-0.01em;">Course Syllabus</div>
+        </div>
+        <button onclick="closeSyllabus()"
+          style="width:34px;height:34px;border-radius:8px;border:1px solid #e5e7eb;background:#f9fafb;cursor:pointer;font-size:1rem;color:#6b7280;display:flex;align-items:center;justify-content:center;">✕</button>
+      </div>
+      <div style="overflow-y:auto;padding:24px 28px;flex:1;">
+
+        <div class="syl-module">
+          <div class="syl-mod-header">
+            <div class="syl-mod-icon blue-icon">1</div>
+            <div class="syl-mod-title">Module 1: Introduction</div>
+          </div>
+          <div class="syl-lessons">
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 1: Getting to know Excel</div>
+              <div class="syl-topics"><span>Create and open workbooks</span><span>Explore the Excel interface</span>
+              </div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 2: Introducing the Excel fundamentals</div>
+              <div class="syl-topics"><span>Enter and edit data</span><span>Save workbooks</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 3: Navigating and filling cells</div>
+              <div class="syl-topics"><span>Navigate to named cells, ranges, or workbook elements</span><span>Search for
+                  data</span><span>Use the AutoFill feature</span></div>
+            </div>
+            <div class="syl-cornerstone">🏁 Cornerstone: Helping a fellow intern with Microsoft Excel</div>
+          </div>
+        </div>
+
+        <div class="syl-module">
+          <div class="syl-mod-header">
+            <div class="syl-mod-icon blue-icon">2</div>
+            <div class="syl-mod-title">Module 2: Managing worksheets and workbooks</div>
+          </div>
+          <div class="syl-lessons">
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 1: Structuring a worksheet</div>
+              <div class="syl-topics"><span>Set up columns, rows, and cells</span><span>Set up worksheets</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 2: Editing a worksheet</div>
+              <div class="syl-topics"><span>Cut, copy, paste, and move data</span><span>Use Paste Special</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 3: Customizing views and toolbars</div>
+              <div class="syl-topics"><span>Freeze panes and workbook views</span><span>Use the Quick Access
+                  Toolbar</span></div>
+            </div>
+            <div class="syl-cornerstone">🏁 Cornerstone: Organizing inherited beekeeping workbooks</div>
+          </div>
+        </div>
+
+        <div class="syl-module">
+          <div class="syl-mod-header">
+            <div class="syl-mod-icon blue-icon">3</div>
+            <div class="syl-mod-title">Module 3: Formatting cells</div>
+          </div>
+          <div class="syl-lessons">
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 1: Formatting cells</div>
+              <div class="syl-topics"><span>Format font and cells</span><span>Apply number formats</span><span>Reuse
+                  formats</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 2: Aligning cells</div>
+              <div class="syl-topics"><span>Modify cell alignment, orientation, and indentation</span><span>Merge cells
+                  and wrap text</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 3: Using cell styles</div>
+              <div class="syl-topics"><span>Apply cell styles</span><span>Clear formatting</span></div>
+            </div>
+            <div class="syl-cornerstone">🏁 Cornerstone: Taking the workbook style challenge</div>
+          </div>
+        </div>
+
+        <div class="syl-module">
+          <div class="syl-mod-header">
+            <div class="syl-mod-icon blue-icon">4</div>
+            <div class="syl-mod-title">Module 4: Managing tables and range data</div>
+          </div>
+          <div class="syl-lessons">
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 1: Understanding tables and ranges</div>
+              <div class="syl-topics"><span>Format data as a table and change the table style</span><span>Convert a
+                  table to a range</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 2: Configuring table format options</div>
+              <div class="syl-topics"><span>Configure table style options</span><span>Insert and manage rows, columns,
+                  and total rows</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 3: Naming tables and ranges</div>
+              <div class="syl-topics"><span>Name a table</span><span>Define a named range</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 4: Sorting and filtering</div>
+              <div class="syl-topics"><span>Sort and filter records</span><span>Perform a custom sort</span></div>
+            </div>
+            <div class="syl-cornerstone">🏁 Cornerstone: Organizing farm merchandise data</div>
+          </div>
+        </div>
+
+        <div class="syl-module">
+          <div class="syl-mod-header">
+            <div class="syl-mod-icon blue-icon">5</div>
+            <div class="syl-mod-title">Module 5: Using formulas and functions</div>
+          </div>
+          <div class="syl-lessons">
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 1: Performing basic calculations</div>
+              <div class="syl-topics"><span>Understand basic formulas</span><span>Display formulas</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 2: Using references in formulas</div>
+              <div class="syl-topics"><span>Understand relative and absolute references</span><span>Use named ranges and
+                  worksheet references in formulas</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 3: Introducing functions</div>
+              <div class="syl-topics"><span>Use functions in calculations</span><span>Use MAX and MIN functions in
+                  formulas</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 4: Using count functions</div>
+              <div class="syl-topics"><span>Use COUNT and COUNTA functions to analyze data</span><span>Use the
+                  COUNTBLANK function</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 5: Using logical functions</div>
+              <div class="syl-topics"><span>Understand IF statements</span><span>Use the IF function</span></div>
+            </div>
+            <div class="syl-cornerstone">🏁 Cornerstone: Calculating and summarizing event attendance and ticket sales
+            </div>
+          </div>
+        </div>
+
+        <div class="syl-module">
+          <div class="syl-mod-header">
+            <div class="syl-mod-icon blue-icon">6</div>
+            <div class="syl-mod-title">Module 6: Getting and transforming data</div>
+          </div>
+          <div class="syl-lessons">
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 1: Importing data</div>
+              <div class="syl-topics"><span>Get data from other sources</span><span>Import data from .txt
+                  files</span><span>Import data from .csv files</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 2: Manipulating text</div>
+              <div class="syl-topics"><span>Convert text to columns</span><span>Extract text using LEFT, RIGHT, MID, and
+                  LEN</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 3: Converting text</div>
+              <div class="syl-topics"><span>Convert text using the PROPER function</span><span>Convert text using UPPER
+                  and LOWER functions</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 4: Combining text</div>
+              <div class="syl-topics"><span>Combine text using the CONCAT function</span><span>Combine text using the
+                  TEXTJOIN function</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 5: Inserting hyperlinks</div>
+              <div class="syl-topics"><span>Insert hyperlinks inside a workbook</span><span>Insert hyperlinks outside a
+                  workbook</span><span>Remove hyperlinks</span></div>
+            </div>
+            <div class="syl-cornerstone">🏁 Cornerstone: Importing data into a workbook</div>
+          </div>
+        </div>
+
+        <div class="syl-module">
+          <div class="syl-mod-header">
+            <div class="syl-mod-icon blue-icon">7</div>
+            <div class="syl-mod-title">Module 7: Visualizing data</div>
+          </div>
+          <div class="syl-lessons">
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 1: Using conditional formatting</div>
+              <div class="syl-topics"><span>Apply conditional formatting</span><span>Remove conditional
+                  formatting</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 2: Using charts</div>
+              <div class="syl-topics"><span>Create charts</span><span>Add alternative text</span><span>Move
+                  charts</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 3: Editing charts</div>
+              <div class="syl-topics"><span>Add a data series</span><span>Switch between rows and columns</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 4: Understanding chart elements</div>
+              <div class="syl-topics"><span>Add chart elements</span><span>Modify chart elements</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 5: Chart styles and layouts</div>
+              <div class="syl-topics"><span>Apply layouts</span><span>Apply styles and colors</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 6: Understanding sparklines</div>
+              <div class="syl-topics"><span>Insert sparklines</span><span>Modify sparklines</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 7: Quick Analysis feature</div>
+              <div class="syl-topics"><span>Use Quick Analysis to format data</span><span>Disable the Quick Analysis
+                  feature</span></div>
+            </div>
+            <div class="syl-cornerstone">🏁 Cornerstone: Observing farm energy data</div>
+          </div>
+        </div>
+
+        <div class="syl-module">
+          <div class="syl-mod-header">
+            <div class="syl-mod-icon blue-icon">8</div>
+            <div class="syl-mod-title">Module 8: Preparing to print and checking for issues</div>
+          </div>
+          <div class="syl-lessons">
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 1: Preparing to print</div>
+              <div class="syl-topics"><span>Understand the print settings</span><span>Understand page setup</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 2: Using headers and footers</div>
+              <div class="syl-topics"><span>Add headers and footers</span><span>Edit headers and footers</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 3: Checking for issues</div>
+              <div class="syl-topics"><span>Modify the basic workbook properties</span><span>Inspect workbooks for
+                  issues</span></div>
+            </div>
+            <div class="syl-cornerstone">🏁 Cornerstone: Preparing a financial workbook for printing</div>
+          </div>
+        </div>
+
+        <div
+          style="background:#f0f4ff;border:1px solid #c7d7fc;border-radius:10px;padding:18px 20px;display:flex;align-items:center;gap:14px;margin-top:8px;">
+          <div style="font-size:1.4rem;">🎓</div>
+          <div>
+            <div style="font-size:0.82rem;font-weight:700;color:#1a4ed8;margin-bottom:2px;">Capstone</div>
+            <div style="font-size:0.8rem;color:#4b5563;">A comprehensive final project consolidating all modules.
+              Duration varies based on individual pace.</div>
+          </div>
+        </div>
+
+      </div>
+      <div
+        style="padding:18px 28px;border-top:1px solid #e5e7eb;display:flex;gap:10px;flex-shrink:0;background:#f9fafb;border-radius:0 0 16px 16px;">
+        <button onclick="closeSyllabus()"
+          style="flex:1;padding:11px;border:1px solid #e5e7eb;border-radius:8px;background:#fff;font-size:0.875rem;font-weight:500;color:#4b5563;cursor:pointer;">Close</button>
+        <button onclick="window.open('https://forms.office.com/r/Rydt28Cyrf', '_blank')"
+          style="flex:2;padding:11px;border:none;border-radius:8px;background:#1a4ed8;font-size:0.875rem;font-weight:600;color:#fff;cursor:pointer;">Enrol
+          Now →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+     EXPERT SYLLABUS MODAL (MO-201)
+════════════════════════════════════════════════════════════ -->
+  <div id="expert-syllabus-overlay" onclick="if(event.target===this)closeExpertSyllabus()"
+    style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(10,15,25,0.6);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px;">
+    <div id="expert-syllabus-panel"
+      style="background:#fff;border-radius:16px;width:100%;max-width:720px;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,0.25);transform:translateY(32px);opacity:0;transition:transform 0.3s ease,opacity 0.3s ease;">
+      <div
+        style="padding:24px 28px;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
+        <div>
+          <div
+            style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#166534;margin-bottom:4px;">
+            MOS Excel 2019 Expert · MO-201</div>
+          <div style="font-size:1.1rem;font-weight:700;color:#0d0f12;letter-spacing:-0.01em;">Course Syllabus</div>
+        </div>
+        <button onclick="closeExpertSyllabus()"
+          style="width:34px;height:34px;border-radius:8px;border:1px solid #e5e7eb;background:#f9fafb;cursor:pointer;font-size:1rem;color:#6b7280;display:flex;align-items:center;justify-content:center;">✕</button>
+      </div>
+      <div style="overflow-y:auto;padding:24px 28px;flex:1;">
+
+        <div class="syl-module">
+          <div class="syl-mod-header">
+            <div class="syl-mod-icon green-icon">1</div>
+            <div class="syl-mod-title">Module 1: Managing and formatting data</div>
+          </div>
+          <div class="syl-lessons">
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 1: Understanding conditional formatting rules</div>
+              <div class="syl-topics"><span>Customize conditional formatting rules</span><span>Use formulas for
+                  conditional formatting</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 2: Managing rules and customizing formats</div>
+              <div class="syl-topics"><span>Manage conditional formatting rules</span><span>Customize number
+                  formats</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 3: Grouping data</div>
+              <div class="syl-topics"><span>Group and ungroup data</span><span>Subtotal data</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 4: Consolidating data and configuring language options</div>
+              <div class="syl-topics"><span>Consolidate data</span><span>Use language-specific
+                  features</span><span>Configure the editing and display languages</span></div>
+            </div>
+            <div class="syl-cornerstone syl-cornerstone-green">🏁 Cornerstone: Depicting energy consumption</div>
+          </div>
+        </div>
+
+        <div class="syl-module">
+          <div class="syl-mod-header">
+            <div class="syl-mod-icon green-icon">2</div>
+            <div class="syl-mod-title">Module 2: Using advanced formulas</div>
+          </div>
+          <div class="syl-lessons">
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 1: Using logical, statistical and mathematical functions</div>
+              <div class="syl-topics"><span>Use functions with single criteria</span><span>Use functions with multiple
+                  criteria</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 2: Using lookup functions</div>
+              <div class="syl-topics"><span>Use VLOOKUP</span><span>Use HLOOKUP</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 3: Using lookup functions and external references</div>
+              <div class="syl-topics"><span>Use MATCH and INDEX</span><span>Reference data from other workbooks</span>
+              </div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 4: Using date and time functions</div>
+              <div class="syl-topics"><span>Use NOW and TODAY</span><span>Use WEEKDAY and WORKDAY</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 5: Customizing Microsoft Excel</div>
+              <div class="syl-topics"><span>Set formula calculation options</span><span>Set Excel options</span></div>
+            </div>
+            <div class="syl-cornerstone syl-cornerstone-green">🏁 Cornerstone: Analyzing soil tests</div>
+          </div>
+        </div>
+
+        <div class="syl-module">
+          <div class="syl-mod-header">
+            <div class="syl-mod-icon green-icon">3</div>
+            <div class="syl-mod-title">Module 3: Validating and auditing data</div>
+          </div>
+          <div class="syl-lessons">
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 1: Validating data</div>
+              <div class="syl-topics"><span>Perform basic data validation</span><span>Remove duplicates</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 2: Filling cells</div>
+              <div class="syl-topics"><span>Use the Flash Fill feature</span><span>Set advanced options for fill
+                  series</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 3: Auditing formulas</div>
+              <div class="syl-topics"><span>Trace precedents and dependents</span><span>Use the Watch Window</span>
+              </div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 4: Checking and evaluating data</div>
+              <div class="syl-topics"><span>Create error checking rules</span><span>Evaluate formulas</span></div>
+            </div>
+            <div class="syl-cornerstone syl-cornerstone-green">🏁 Cornerstone: Auditing CSA data</div>
+          </div>
+        </div>
+
+        <div class="syl-module">
+          <div class="syl-mod-header">
+            <div class="syl-mod-icon green-icon">4</div>
+            <div class="syl-mod-title">Module 4: Analyzing data</div>
+          </div>
+          <div class="syl-lessons">
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 1: Forecasting data</div>
+              <div class="syl-topics"><span>Use logical operations</span><span>Create a forecast sheet</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 2: Analyzing financial data</div>
+              <div class="syl-topics"><span>Use the PMT function</span><span>Use the NPER function</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 3: Performing a What-If analysis</div>
+              <div class="syl-topics"><span>Perform a Goal Seek</span><span>Use the Scenario Manager</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 4: Creating advanced charts</div>
+              <div class="syl-topics"><span>Create dual-axis charts</span><span>Create and modify charts</span></div>
+            </div>
+            <div class="syl-cornerstone syl-cornerstone-green">🏁 Cornerstone: Deciding whether to produce more sweet
+              corn</div>
+          </div>
+        </div>
+
+        <div class="syl-module">
+          <div class="syl-mod-header">
+            <div class="syl-mod-icon green-icon">5</div>
+            <div class="syl-mod-title">Module 5: Using simple macros</div>
+          </div>
+          <div class="syl-lessons">
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 1: Understanding macros</div>
+              <div class="syl-topics"><span>Display the Developer tab</span><span>Get an introduction to
+                  macros</span><span>Enable macros in a workbook</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 2: Recording and running macros</div>
+              <div class="syl-topics"><span>Record simple macros</span><span>Run simple macros</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 3: Using the Visual Basic Editor</div>
+              <div class="syl-topics"><span>Access the Visual Basic Editor</span><span>Copy macros between
+                  workbooks</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 4: Editing macros</div>
+              <div class="syl-topics"><span>Name simple macros</span><span>Edit simple macros</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 5: Understanding relative macros</div>
+              <div class="syl-topics"><span>Understand relative vs. absolute macros</span><span>Record a relative
+                  macro</span></div>
+            </div>
+            <div class="syl-cornerstone syl-cornerstone-green">🏁 Cornerstone: Using macros</div>
+          </div>
+        </div>
+
+        <div class="syl-module">
+          <div class="syl-mod-header">
+            <div class="syl-mod-icon green-icon">6</div>
+            <div class="syl-mod-title">Module 6: Using Microsoft PivotTables and Microsoft PivotCharts</div>
+          </div>
+          <div class="syl-lessons">
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 1: Using PivotTables</div>
+              <div class="syl-topics"><span>Use recommended PivotTables</span><span>Create PivotTables</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 2: Modifying PivotTables</div>
+              <div class="syl-topics"><span>Modify field selections and options</span><span>Format data</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 3: Performing PivotTable calculations</div>
+              <div class="syl-topics"><span>Add calculated fields</span><span>Depict values in different ways</span>
+              </div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 4: Filtering and grouping PivotTables</div>
+              <div class="syl-topics"><span>Create slicers</span><span>Group fields</span><span>Create timelines</span>
+              </div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 5: Using PivotCharts: the basics</div>
+              <div class="syl-topics"><span>Create PivotCharts</span><span>Manipulate options in existing
+                  PivotCharts</span></div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 6: Using PivotCharts: beyond the basics</div>
+              <div class="syl-topics"><span>Apply styles to PivotCharts</span><span>Drill down into PivotChart
+                  details</span></div>
+            </div>
+            <div class="syl-cornerstone syl-cornerstone-green">🏁 Cornerstone: Creating a sales dashboard</div>
+          </div>
+        </div>
+
+        <div class="syl-module">
+          <div class="syl-mod-header">
+            <div class="syl-mod-icon green-icon">7</div>
+            <div class="syl-mod-title">Module 7: Collaborating with other people</div>
+          </div>
+          <div class="syl-lessons">
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 1: Managing workbooks</div>
+              <div class="syl-topics"><span>Manage workbook versions</span><span>Use the AutoRecover feature</span>
+              </div>
+            </div>
+            <div class="syl-lesson">
+              <div class="syl-lesson-name">Lesson 2: Helping protect workbooks and managing comments</div>
+              <div class="syl-topics"><span>Restrict editing</span><span>Help protect workbooks and managing
+                  comments</span><span>Manage comments</span></div>
+            </div>
+            <div class="syl-cornerstone syl-cornerstone-green">🏁 Cornerstone: Sharing data for a social media campaign
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:18px 20px;display:flex;align-items:center;gap:14px;margin-top:8px;">
+          <div style="font-size:1.4rem;">🎓</div>
+          <div>
+            <div style="font-size:0.82rem;font-weight:700;color:#166534;margin-bottom:2px;">Capstone</div>
+            <div style="font-size:0.8rem;color:#4b5563;">A comprehensive final project consolidating all Expert modules.
+              Duration varies based on individual pace.</div>
+          </div>
+        </div>
+
+      </div>
+      <div
+        style="padding:18px 28px;border-top:1px solid #e5e7eb;display:flex;gap:10px;flex-shrink:0;background:#f9fafb;border-radius:0 0 16px 16px;">
+        <button onclick="closeExpertSyllabus()"
+          style="flex:1;padding:11px;border:1px solid #e5e7eb;border-radius:8px;background:#fff;font-size:0.875rem;font-weight:500;color:#4b5563;cursor:pointer;">Close</button>
+        <button onclick="window.open('https://forms.office.com/r/Rydt28Cyrf', '_blank')"
+          style="flex:2;padding:11px;border:none;border-radius:8px;background:#166534;font-size:0.875rem;font-weight:600;color:#fff;cursor:pointer;">Enrol
+          Now →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+     SHARED SYLLABUS STYLES
+════════════════════════════════════════════════════════════ -->
+  <style>
+    .syl-module {
+      margin-bottom: 20px;
+    }
+
+    .syl-mod-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .syl-mod-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .blue-icon {
+      background: #1a4ed8;
+    }
+
+    .green-icon {
+      background: #166534;
+    }
+
+    .syl-mod-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #0d0f12;
+    }
+
+    .syl-lessons {
+      padding-left: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .syl-lesson {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+
+    .syl-lesson-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 6px;
+    }
+
+    .syl-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .syl-topics span {
+      font-size: 0.72rem;
+      background: #eff6ff;
+      color: #1a4ed8;
+      border: 1px solid #dbeafe;
+      padding: 2px 8px;
+      border-radius: 12px;
+    }
+
+    .syl-cornerstone {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #166534;
+      background: #dcfce7;
+      border: 1px solid #bbf7d0;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    .syl-cornerstone-green {
+      color: #166534;
+      background: #dcfce7;
+      border-color: #bbf7d0;
+    }
+
+    @media (max-width:600px) {
+      .syl-lessons {
+        padding-left: 10px;
+      }
+    }
+  </style>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
+    /* ── Associate modal ── */
+    function openSyllabus() {
+      const overlay = document.getElementById('syllabus-overlay');
+      const panel = document.getElementById('syllabus-panel');
+      overlay.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => {
+        panel.style.transform = 'translateY(0)';
+        panel.style.opacity = '1';
+      });
+    }
+    function closeSyllabus() {
+      const overlay = document.getElementById('syllabus-overlay');
+      const panel = document.getElementById('syllabus-panel');
+      panel.style.transform = 'translateY(32px)';
+      panel.style.opacity = '0';
+      setTimeout(() => { overlay.style.display = 'none'; document.body.style.overflow = ''; }, 280);
+    }
+
+    /* ── Expert modal ── */
+    function openExpertSyllabus() {
+      const overlay = document.getElementById('expert-syllabus-overlay');
+      const panel = document.getElementById('expert-syllabus-panel');
+      overlay.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => {
+        panel.style.transform = 'translateY(0)';
+        panel.style.opacity = '1';
+      });
+    }
+    function closeExpertSyllabus() {
+      const overlay = document.getElementById('expert-syllabus-overlay');
+      const panel = document.getElementById('expert-syllabus-panel');
+      panel.style.transform = 'translateY(32px)';
+      panel.style.opacity = '0';
+      setTimeout(() => { overlay.style.display = 'none'; document.body.style.overflow = ''; }, 280);
+    }
+  </script>
+
+</body>
+
+</html>
